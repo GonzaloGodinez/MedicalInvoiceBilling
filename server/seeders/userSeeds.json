@@ -1,0 +1,52 @@
+[
+  {
+    "username": "Brian submitter",
+    "email": "bsubmitter@techfriends.dev",
+    "password": "password01"
+  },
+  {
+    "username": "Max submitter1",
+    "email": "mkanatalexander@techfriends.dev",
+    "password": "password02"
+  },
+  {
+    "username": "Why submitter2",
+    "email": "wtls@techfriends.dev",
+    "password": "password03"
+  },
+  {
+    "username": "Kent submitter3",
+    "email": "ksubmitter3@techfriends.dev",
+    "password": "password04"
+  },
+  {
+    "username": "Edward V. submitter4",
+    "email": "evsubmitter4@techfriends.dev",
+    "password": "password05"
+  },
+  {
+    "username": "Alan submitter5",
+    "email": "asubmitter5@techfriends.dev",
+    "password": "password06"
+  },
+  {
+    "username": "C.A.R. submitter6",
+    "email": "csubmitter6@techfriends.dev",
+    "password": "password07"
+  },
+  {
+    "username": "David submitter7",
+    "email": "dsubmitter7@techfriends.dev",
+    "password": "password08"
+  },
+  {
+    "username": "Donald submitter8",
+    "email": "dsubmitter8@techfriends.dev",
+    "password": "password09"
+  },
+  {
+    "username": "Lernantino",
+    "email": "lernantino@techfriends.dev",
+    "password": "password10"
+  }
+]

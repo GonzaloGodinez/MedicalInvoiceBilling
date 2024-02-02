@@ -1,0 +1,42 @@
+[
+  {
+    "providerName": "Johny Fixer",
+    "providerSpecialty": "Internist"
+  },
+  {
+    "providerName": "Peter Heart",
+    "providerSpecialty": "Heart"
+  },
+  {
+    "providerName": "John Lung",
+    "providerSpecialty": "Pneumologist"
+  },
+  {
+    "providerName": "Peter Path",
+    "providerSpecialty": "Pathologist"
+  },
+  {
+    "providerName": "Robert Kidney",
+    "providerSpecialty": "Urologist"
+  },
+  {
+    "providerName": "James Digest",
+    "providerSpecialty": "Dieticiant"
+  },
+  {
+    "providerName": "Derek Anist",
+    "providerSpecialty": "Anesthesiologist"
+  },
+  {
+    "providerName": "Kevin Nero",
+    "providerSpecialty": "Neurologist"
+  },
+  {
+    "providerName": "Chris Donowve",
+    "providerSpecialty": "Psichologist"
+  },
+  {
+    "providerName": "Jane Giao",
+    "providerSpecialty": "Ginecologist"
+  }
+]
