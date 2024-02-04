@@ -26,6 +26,12 @@ const userSchema = new Schema({
       ref: 'Provider',
     },
   ],
+  Patients: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Patient',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {
