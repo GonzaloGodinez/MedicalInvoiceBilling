@@ -4,7 +4,7 @@ const dateFormat = require('../utils/dateFormat');
 const patientSchema = new Schema({
   patientName: {
     type: String,
-    required: 'You need to leave a patient name!',
+    required: 'You need to leave a patient!',
     minlength: 1,
     maxlength: 280,
     trim: true,
