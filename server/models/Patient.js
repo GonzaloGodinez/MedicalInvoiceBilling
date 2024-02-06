@@ -14,16 +14,32 @@ const patientSchema = new Schema({
     required: true,
     trim: false,
   },
-  patientAddress: {
-    type: String,
-    required: true,
-    trim: false,
-  },
-  patientTel: {
-    type: String,
-    required: true,
-    trim: false,
-  },
+//   patientAddress: {
+//     type: String,
+//     required: true,
+//     trim: false,
+//   },
+//   patientAddress1: {
+//     type: String,
+//     required: true,
+//     trim: false,
+//   },
+//   patientTel: {
+//     type: String,
+//     required: true,
+//     trim: false,
+//   },
+//   patientZip: {
+//     type: String,
+//     required: true,
+//     trim: false,
+//   },
+// patientDob: {
+//   type: String,
+//   required: true,
+//   trim: false,
+// },
+
   createdAt: {
     type: Date,
     default: Date.now,

@@ -18,7 +18,7 @@ const typeDefs = `
   type Patient {
     _id: ID
     patientName: String
-    patientSymtom: String
+    patientSS: String
     createdAt: String
   }
 
