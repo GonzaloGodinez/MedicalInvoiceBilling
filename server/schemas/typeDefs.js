@@ -36,12 +36,12 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addProvider(providerName: String!): Provider
-    addPatient(providerId: ID!, patientName: String!): Provider
-    removeProvider(providerId: ID!): Provider
-    removePatient(providerId: ID!, patientId: ID!): Provider
+    addUser(username: String!, email: String!, password: String!): Auth
+    addProvider(providerName: String!): User
+    addPatient(providerId: ID!, patientName: String!): User
+    removeProvider(providerId: ID!): User
+    removePatient(providerId: ID!, patientId: ID!): User
   }
 `;
 
