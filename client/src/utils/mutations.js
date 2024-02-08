@@ -7,6 +7,7 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
+        email
       }
     }
   }
@@ -19,38 +20,66 @@ export const ADD_USER = gql`
       user {
         _id
         username
+        email
       }
     }
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+export const SAVE_PATIENT = gql`
+  mutation savePatient($PatientData: PatientInput!) {
+    savePatient(patientData: $patientData) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
+      username
+      email
+      patientCount
+      savedPatients {
+      patientId
+      authors
+      description
+      title
+      image
+      link
       }
     }
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+export const RETRIEVE_PATIENT = gql`
+  mutation savePatient($PatientData: PatientInput!) {
+    savePatient(patientData: $patientData) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
+      username
+      email
+      patientCount
+      savedPatients {
+      patientId
+      authors
+      description
+      title
+      image
+      link
       }
     }
   }
 `;
+
+export const REMOVE_PATIENT = gql`
+  mutation removePatient($patientId: ID!) {
+    removePatient(patientId: $patientId) {
+      _id
+      username
+      email
+      patientCount
+      savedPatients {
+        patientId
+        authors
+        description
+        title
+        image
+        link
+      }
+    }
+  }
+`;
+
