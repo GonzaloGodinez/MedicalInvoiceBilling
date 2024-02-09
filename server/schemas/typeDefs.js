@@ -16,12 +16,17 @@ const typeDefs = `
   }
 
   type Patient {
-    _id: ID
-    patientName: String
-    patientSS: String
-    createdAt: String
+    _id: ID!
+    name: String!
+    email: String
+    ssn: String!
   }
-
+input PatientInput {
+  patientName: String!
+  patientSsn: Int!
+  patientEmail: String
+  dob: String
+}
   type Auth {
     token: ID!
     user: User
@@ -38,10 +43,10 @@ const typeDefs = `
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addProvider(providerName: String!): User
-    addPatient(providerId: ID!, patientName: String!): User
-    removeProvider(providerId: ID!): User
-    removePatient(providerId: ID!, patientId: ID!): User
+    addProvider(providerName: String!): Provider
+    addPatient(providerId: ID!, patientName: String!): Provider
+    removeProvider(providerId: ID!): Provider
+    removePatient(providerId: ID!, patientId: ID!): Provider
   }
 `;
 

@@ -19,15 +19,16 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
             <Nav className='ml-auto d-flex'>
-              <Nav.Link as={Link} to='/'>
-                Search For Patients
-              </Nav.Link>
+              
               {/* if user is logged in show saved patients and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/saved'>
-                    See Your Patients
+                  <Nav.Link as={Link} to='/provider'>
+                    See Your Providers
                   </Nav.Link>
+                  {/* <Nav.Link as={Link} to='/billing'>
+                Search For Patients
+              </Nav.Link> */}
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (

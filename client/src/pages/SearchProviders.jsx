@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { SAVE_PATIENT } from '../utils/mutations';
+import { QUERY_ME } from '../utils/queries';
 
 import {
   Container,
@@ -26,7 +27,9 @@ const SearchProviders = () => {
 
   // set up useEffect hook to save `savedPatientIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-
+  useEffect(() => {
+    return () => savePatients(savedPatientIds);
+  });
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -36,11 +39,10 @@ const SearchProviders = () => {
 
     try {
       const patientData = items.map((patient) => ({
-        patientId: patient.id,
-        authors: patient.volumeInfo.authors || ['No patient to display'],
-        title: patient.volumeInfo.title,
-        description: patient.volumeInfo.description,
-        image: patient.volumeInfo.imageLinks?.thumbnail || '',
+        patientId: patient._id,
+        patient: patient.Name || ['No patient to display'],
+        SSN: patient.SSN,
+        DOB: patient.DOB
       }));
 console.log 
 // make the query
