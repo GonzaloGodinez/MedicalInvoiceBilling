@@ -13,8 +13,8 @@ import {
 
 import Auth from '../utils/auth';
 
-import { searchGooglePatients } from '../utils/API'; 
-import { savePatientIds, getSavedPatientIds } from '../utils/localStorage'; 
+//import { searchGooglePatients } from '../utils/API'; 
+// import { savePatientIds, getSavedPatientIds } from '../utils/localStorage'; 
 
 
 const SearchProviders = () => {

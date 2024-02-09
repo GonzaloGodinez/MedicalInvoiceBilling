@@ -1,11 +1,11 @@
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import App from './App.jsx';
-import Login from './components/LoginForm';
-import SearchProviders from './pages/SearchProviders.jsx';
-import BillingPage from './components/BillingPage';
-// import Searchprovider from './pages/Searchproviders';
+import App from './App.jsx'
+// import Login from './components/LoginForm';
+import SearchProviders from './pages/SearchProviders.jsx'
+import BillingPage from './components/BillingPage'
 
 const router = createBrowserRouter([
   {
@@ -16,10 +16,11 @@ const router = createBrowserRouter([
         Index: true,
         element: <BillingPage />
       },
-      {
-        path: '/login',
-        element: <Login />
-      },
+      // login is included in the navbar.jsx file
+      // {
+      //   path: '/login',
+      //   element: <Login />
+      // },
       {
         path: '/provider/:providerId',
         element: <SearchProviders />
