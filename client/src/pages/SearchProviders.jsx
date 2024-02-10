@@ -14,13 +14,12 @@ import {
 
 import Auth from '../utils/auth';
 
-//import { searchGooglePatients } from '../utils/API'; 
 // import { savePatientIds, getSavedPatientIds } from '../utils/localStorage'; 
 
 
 const SearchProviders = () => {
   // create state for holding returned google api data
-  const [Provider, setProvider] = useState([]);
+  const [searchedProviders, setsearchedProviders] = useState([]);
   // const [searchedPatients, setSearchedPatients] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
@@ -28,7 +27,7 @@ const SearchProviders = () => {
   // set up useEffect hook to save `savedPatientIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => savePatients(savedPatientIds);
+    // return () => savePatients(savedPatientIds);
   });
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -45,11 +44,11 @@ const SearchProviders = () => {
         DOB: patient.DOB
       }));
 console.log 
-// make the query
-// loop thru them
+// make the query d o n e
+// loop thru them d o n e
 // console.log them
 // perform the drop down menu
-// on select call the providers
+// on select call the searchProviders
 // when  the provider is selected then we map the patients in html
       setProvider(providerData);
       setSearchInput('');
@@ -61,7 +60,7 @@ console.log
   // create function to handle saving a patient to our database
   const handlesaveProvider = async (patientId) => {
     // find the patient in `Provider` state by the matching id
-    const patientToSave = Provider.find((patient) => patient.patientId === patientId);
+    const patientToSave = searchedProviders.find((patient) => patient.patientId === patientId);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -114,12 +113,12 @@ console.log
 
       <Container>
         <h2 className='pt-5'>
-          {Provider.length
-            ? `Viewing ${Provider.length} results:`
+          {searchedProviders.length
+            ? `Viewing ${searchedProviders.length} results:`
             : 'Search for a patient to begin'}
         </h2>
         <Row>
-          {Provider.map((patient) => {
+          {searchedProviders.map((patient) => {
             return (
               <Col md="4" key={patient.patientId}>
                 <Card border='dark'>
@@ -134,7 +133,7 @@ console.log
                       <Button
                         disabled={savedPatientIds?.some((savedPatientId) => savedPatientId === patient.patientId)}
                         className='btn-block btn-info'
-                        onClick={() => handlesavePatient(patient.patientId)}>
+                        onClick={() => handlesaveProvider(patient.patientId)}>
                         {savedPatientIds?.some((savedPatientId) => savedPatientId === patient.patientId)
                           ? 'This patient has already been saved!'
                           : 'Save this Patient!'}

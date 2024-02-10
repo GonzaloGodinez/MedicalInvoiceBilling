@@ -2,9 +2,12 @@ const typeDefs = `
   type User {
     _id: ID
     username: String
+    patientName: String
+    patientSSN: String
     email: String
     password: String
-    provider: [Provider]!
+    Role_type: String
+    Providers: [Provider]!
   }
 
   type Provider {
@@ -12,20 +15,16 @@ const typeDefs = `
     providerName: String
     providerSpecialty: String
     createdAt: String
-    patients: [Patient]!
+    patients: [User]!
   }
 
-  type Patient {
-    _id: ID!
-    name: String!
-    email: String
-    ssn: String!
-  }
 input PatientInput {
   patientName: String!
   patientSsn: Int!
-  patientEmail: String
+  email: String
   dob: String
+  username: String
+  password: String
 }
   type Auth {
     token: ID!
@@ -34,7 +33,7 @@ input PatientInput {
 
   type Query {
     users: [User]
-    user(username: String!): User
+    user(patientName: String!, patientSsn: String!, dob: String): User
     providers(username: String): [Provider]
     provider(providerId: ID!): Provider
     me: User
@@ -44,7 +43,6 @@ input PatientInput {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addProvider(providerName: String!): Provider
-    addPatient(providerId: ID!, patientName: String!): Provider
     removeProvider(providerId: ID!): Provider
     removePatient(providerId: ID!, patientId: ID!): Provider
   }

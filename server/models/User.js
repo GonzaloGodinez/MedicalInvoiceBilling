@@ -8,6 +8,20 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
+  patientName: {
+    type: String,
+    minlength: 1,
+    maxlength: 280,
+    trim: true,
+  },
+  patientSsn: {
+    type: String,
+    trim: false,
+  },
+  dob: {
+    type: String,
+    trim: false,
+  },
   email: {
     type: String,
     required: true,
@@ -19,7 +33,11 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  // Doctor's offices including Hospital Medical Doctors
+  Role_type: {
+    type: String,
+    default: "patient",
+  },
+  // Doctor's offices including Hospital Medical Doctors 
   Providers: [
     {
       type: Schema.Types.ObjectId,

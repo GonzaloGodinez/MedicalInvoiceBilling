@@ -6,8 +6,8 @@ const resolvers = {
     users: async () => {
       return User.find().populate('providers');
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('providers');
+    user: async (parent, { patientName, patientSsn, dob }) => {
+      return User.findOne({ patientName, patientSsn, dob  }).populate('providers');
     },
     providers: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -63,23 +63,6 @@ const resolvers = {
       }
       throw AuthenticationError;
       ('You need to be logged in!');
-    },
-    addPatient: async (parent, { providerId, patientText }, context) => {
-      if (context.user) {
-        return Provider.findOneAndUpdate(
-          { _id: providerId },
-          {
-            $addToSet: {
-              patients: { patientText, patientAuthor: context.user.username },
-            },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-      throw AuthenticationError;
     },
     
     removeProvider: async (parent, { providerId }, context) => {

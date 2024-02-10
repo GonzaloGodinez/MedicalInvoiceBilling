@@ -14,7 +14,7 @@ const AppNavbar = () => {
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-            Medical Invoice Billing
+            Medical Invoice Billing: Dr John Fixer, Internist
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
@@ -24,7 +24,10 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/provider'>
-                    See Your Providers
+                    Patient Information
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/provider'>
+                    Billing
                   </Nav.Link>
                   {/* <Nav.Link as={Link} to='/billing'>
                 Search For Patients
