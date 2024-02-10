@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useMutation } from '@apollo/client';
-import { SAVE_PATIENT } from '../utils/mutations';
-import { QUERY_ME } from '../utils/queries';
+import { useMutation, useQuery } from '@apollo/client';
+// import { SAVE_PATIENT } from '../utils/mutations';
+import { QUERY_USERS } from '../utils/queries';
+// import { QUERY_ME } from '../utils/queries';
 
 import {
   Container,
@@ -23,35 +24,38 @@ const SearchProviders = () => {
   // const [searchedPatients, setSearchedPatients] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
-
+  const [savedPatientIds, setPatientIds] = useState([]);
+  const [loading, data] = useQuery(QUERY_USERS);
   // set up useEffect hook to save `savedPatientIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
+  //  const userData = data?.users || {};
+    console.log("userData")
+    console.log(data)
     // return () => savePatients(savedPatientIds);
-  });
+   },[data]);  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    // {data, loading, error}
     if (!searchInput) {
       return false;
     }
-
+    console.log ("items");
     try {
-      const patientData = items.map((patient) => ({
-        patientId: patient._id,
-        patient: patient.Name || ['No patient to display'],
-        SSN: patient.SSN,
-        DOB: patient.DOB
-      }));
-console.log 
+      // const patientData = items.map((patient) => ({
+      //   patientId: patient._id,
+      //   patient: patient.Name || ['No patient to display'],
+      //   SSN: patient.SSN,
+      //   DOB: patient.DOB
+      // }));
 // make the query d o n e
 // loop thru them d o n e
 // console.log them
 // perform the drop down menu
 // on select call the searchProviders
 // when  the provider is selected then we map the patients in html
-      setProvider(providerData);
-      setSearchInput('');
+      // setProvider(providerData);
+      // setSearchInput('');
     } catch (err) {
       console.error(err);
     }

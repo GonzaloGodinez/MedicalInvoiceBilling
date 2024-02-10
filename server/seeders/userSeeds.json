@@ -2,7 +2,7 @@
   {
     "username": "Brian submitter",
     "email": "bsubmitter@techfriends.dev",
-    "patienName": "",
+    "patientName": "",
     "patientSsn": "",
     "dob": "",
     "password": "password01",
@@ -11,7 +11,7 @@
   {
     "username": "Max submitter1",
     "email": "mkanatalexander@techfriends.dev",
-    "patienName": "GGL",
+    "patientName": "Gerard",
     "patientSsn": "",
     "dob": "",
     "password": "password02",
@@ -20,7 +20,7 @@
   {
     "username": "Why submitter2",
     "email": "wtls@techfriends.dev",
-    "patienName": "GGL1",
+    "patientName": "Phill",
     "patientSsn": "123456789",
     "dob": "01101985",
     "password": "password03",
@@ -29,7 +29,7 @@
   {
     "username": "Kent submitter3",
     "email": "ksubmitter3@techfriends.dev",
-    "patienName": "GGL4",
+    "patientName": "Kevin",
     "patientSsn": "123456987",
     "dob": "01101957",
     "password": "password04",
@@ -37,7 +37,7 @@
   },
   {
     "username": "Edward V. submitter4",
-    "patienName": "GGL5",
+    "patientName": "Janet",
     "patientSsn": "123456432",
     "dob": "01101977",
     "email": "evsubmitter4@techfriends.dev",
@@ -46,7 +46,7 @@
   },
   {
     "username": "Alan submitter5",
-    "patienName": "",
+    "patientName": "",
     "patientSsn": "",
     "dob": "",
     "email": "asubmitter5@techfriends.dev",
@@ -55,7 +55,7 @@
   },
   {
     "username": "C.A.R. submitter6",
-    "patienName": "",
+    "patientName": "",
     "patientSsn": "",
     "dob": "",
     "email": "csubmitter6@techfriends.dev",
@@ -64,7 +64,7 @@
   },
   {
     "username": "David submitter7",
-    "patienName": "",
+    "patientName": "",
     "patientSsn": "",
     "dob": "",
     "email": "dsubmitter7@techfriends.dev",
@@ -73,7 +73,7 @@
   },
   {
     "username": "Kevin submitter8",
-    "patienName": "",
+    "patientName": "",
     "patientSsn": "",
     "dob": "",
     "email": "dsubmitter8@techfriends.dev",
@@ -82,7 +82,7 @@
   },
   {
     "username": "Lernantino",
-        "patienName": "",
+        "patientName": "",
     "patientSsn": "",
     "dob": "",
     "email": "lernantino@techfriends.dev",

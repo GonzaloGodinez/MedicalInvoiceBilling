@@ -10,7 +10,6 @@ const userSchema = new Schema({
   },
   patientName: {
     type: String,
-    minlength: 1,
     maxlength: 280,
     trim: true,
   },

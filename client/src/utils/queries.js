@@ -8,12 +8,27 @@ export const QUERY_USER = gql`
       email
       patients {
         _id
-        patientText
+        patientName
+        dob
+        Role_type
         createdAt
       }
     }
   }
 `;
+
+export const QUERY_USERS = gql`
+query Users {
+  users {
+    email
+    dob
+    Role_type
+    patientName
+    patientSSN
+  }
+}
+`;
+
 
 export const QUERY_PATIENTS = gql`
   query getPatients {
@@ -36,23 +51,18 @@ export const QUERY_SINGLE_PATIENT = gql`
 `;
 
 export const QUERY_ME = gql`
-{
-    me {
+query Me {
+  me {
+    Providers {
       _id
-      username
-      email
-        providers {
-          providerId
-          providerName
-          providerSpecialty
-          patients{
-            _id
-            SSN
-            Name
-            DOB
-          }
-        }
+      createdAt
+      providerName
+      providerSpecialty
     }
+    patientName
+    patientSSN
+    dob
+    email
+  }
 }
-
 `;

@@ -7,6 +7,7 @@ import App from './App.jsx'
 import SearchProviders from './pages/SearchProviders.jsx'
 import BillingPage from './components/BillingPage'
 import CreatePatient from './pages/CreatePatient'
+import SignUpForm from './components/SignUp.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
        {
         path: '/provider',
          element: <SearchProviders />
+       },
+       {
+        path: '/signup',
+         element: <SignUpForm />
        },
     ]
   },
