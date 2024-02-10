@@ -9,7 +9,7 @@ const patientSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
-  patientSSN: {
+  patientSsn: {
     type: Number,
     required: true,
     trim: false,

@@ -4,10 +4,10 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('providers');
+      return User.find().populate('Providers');
     },
     user: async (parent, { patientName, patientSsn, dob }) => {
-      return User.findOne({ patientName, patientSsn, dob  }).populate('providers');
+      return User.findOne({ patientName, patientSsn, dob  }).populate('Providers');
     },
     providers: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -18,15 +18,15 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('providers');
+        return User.findOne({ _id: context.user._id }).populate('Providers');
       }
       throw AuthenticationError;
     },
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+    addUser: async (parent, { username, email, password, patientName, patientSsn, dob}) => {
+      const user = await User.create({ username, email, password, patientName, patientSsn, dob });
       const token = signToken(user);
       return { token, user };
     },
@@ -47,16 +47,16 @@ const resolvers = {
 
       return { token, user };
     },
-    addProvider: async (parent, { providerName }, context) => {
+    addProvider: async (parent, { providerName, providerSpecialty}, context) => {
       if (context.user) {
         const provider = await Provider.create({
           providerName,
-          providerSpecialty: context.user.username,
+          providerSpecialty,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { providers: provider._id } }
+          { $addToSet: { Providers: provider._id } }
         );
 
         return provider;
