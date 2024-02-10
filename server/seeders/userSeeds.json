@@ -2,51 +2,91 @@
   {
     "username": "Brian submitter",
     "email": "bsubmitter@techfriends.dev",
-    "password": "password01"
+    "patienName": "",
+    "patientSsn": "",
+    "dob": "",
+    "password": "password01",
+    "Role_type": "administration"
   },
   {
     "username": "Max submitter1",
     "email": "mkanatalexander@techfriends.dev",
-    "password": "password02"
+    "patienName": "GGL",
+    "patientSsn": "",
+    "dob": "",
+    "password": "password02",
+    "Role_type": "patient"
   },
   {
     "username": "Why submitter2",
     "email": "wtls@techfriends.dev",
-    "password": "password03"
+    "patienName": "GGL1",
+    "patientSsn": "123456789",
+    "dob": "01101985",
+    "password": "password03",
+    "Role_type": "patient"
   },
   {
     "username": "Kent submitter3",
     "email": "ksubmitter3@techfriends.dev",
-    "password": "password04"
+    "patienName": "GGL4",
+    "patientSsn": "123456987",
+    "dob": "01101957",
+    "password": "password04",
+    "Role_type": "patient"
   },
   {
     "username": "Edward V. submitter4",
+    "patienName": "GGL5",
+    "patientSsn": "123456432",
+    "dob": "01101977",
     "email": "evsubmitter4@techfriends.dev",
-    "password": "password05"
+    "password": "password05",
+    "Role_type": "patient"
   },
   {
     "username": "Alan submitter5",
+    "patienName": "",
+    "patientSsn": "",
+    "dob": "",
     "email": "asubmitter5@techfriends.dev",
-    "password": "password06"
+    "password": "password06",
+    "Role_type": "administration"
   },
   {
     "username": "C.A.R. submitter6",
+    "patienName": "",
+    "patientSsn": "",
+    "dob": "",
     "email": "csubmitter6@techfriends.dev",
-    "password": "password07"
+    "password": "password07",
+    "Role_type": "administration"
   },
   {
     "username": "David submitter7",
+    "patienName": "",
+    "patientSsn": "",
+    "dob": "",
     "email": "dsubmitter7@techfriends.dev",
-    "password": "password08"
+    "password": "password08",
+    "Role_type": "administration"
   },
   {
-    "username": "Donald submitter8",
+    "username": "Kevin submitter8",
+    "patienName": "",
+    "patientSsn": "",
+    "dob": "",
     "email": "dsubmitter8@techfriends.dev",
-    "password": "password09"
+    "password": "password09",
+    "Role_type": "administration"
   },
   {
     "username": "Lernantino",
+        "patienName": "",
+    "patientSsn": "",
+    "dob": "",
     "email": "lernantino@techfriends.dev",
-    "password": "password10"
+    "password": "password10",
+    "Role_type": "administration"
   }
 ]

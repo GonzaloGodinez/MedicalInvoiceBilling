@@ -6,6 +6,7 @@ import App from './App.jsx'
 // import Login from './components/LoginForm';
 import SearchProviders from './pages/SearchProviders.jsx'
 import BillingPage from './components/BillingPage'
+import CreatePatient from './pages/CreatePatient'
 
 const router = createBrowserRouter([
   {
@@ -14,17 +15,17 @@ const router = createBrowserRouter([
     children: [
       {
         Index: true,
+        element: <CreatePatient />
+      },
+      {
+        Path: "/billing",
         element: <BillingPage />
       },
       // login is included in the navbar.jsx file
-      // {
-      //   path: '/login',
-      //   element: <Login />
-      // },
-      {
-        path: '/provider/:providerId',
-        element: <SearchProviders />
-      }
+       {
+        path: '/provider',
+         element: <SearchProviders />
+       },
     ]
   },
 ]);

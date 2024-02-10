@@ -27,59 +27,35 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_PATIENT = gql`
-  mutation savePatient($PatientData: PatientInput!) {
-    savePatient(patientData: $patientData) {
+  mutation savePatient($patientData: patientInput!, $providerId: providerId!) {
+    savePatient(patientData: $patientData, providerId: $providerId) {
       _id
-      username
-      email
-      patientCount
-      savedPatients {
-      patientId
-      authors
-      description
-      title
-      image
-      link
-      }
+      patientName
+      patientSSN
+      patientEmail
+      dob
     }
   }
 `;
 
-export const RETRIEVE_PATIENT = gql`
-  mutation savePatient($PatientData: PatientInput!) {
-    savePatient(patientData: $patientData) {
+export const CREATE_PATIENT = gql`
+  mutation createPatient($patientData: patientInput!) {
+    createPatient(patientData: $patientData) {
       _id
-      username
-      email
-      patientCount
-      savedPatients {
-      patientId
-      authors
-      description
-      title
-      image
-      link
-      }
+      patientName
+      patientSSN
+      patientEmail
+      dob
     }
   }
 `;
 
 export const REMOVE_PATIENT = gql`
-  mutation removePatient($patientId: ID!) {
-    removePatient(patientId: $patientId) {
+  mutation removePatient($patientId: ID!, $provider: providerId!) {
+    removePatient(patientId: $patientId, providerId: $providerId) {
       _id
-      username
-      email
-      patientCount
-      savedPatients {
-        patientId
-        authors
-        description
-        title
-        image
-        link
+      patientSSN
       }
-    }
   }
 `;
 
