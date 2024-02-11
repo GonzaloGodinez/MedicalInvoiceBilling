@@ -24,7 +24,7 @@ query Users {
     dob
     Role_type
     patientName
-    patientSSN
+    patientSsn
   }
 }
 `;

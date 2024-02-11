@@ -3,7 +3,7 @@ const typeDefs = `
     _id: ID
     username: String
     patientName: String
-    patientSSN: String
+    patientSsn: String
     dob: String
     email: String
     password: String
@@ -20,7 +20,7 @@ const typeDefs = `
 
 input PatientInput {
   patientName: String!
-  patientSsn: Int!
+  patientSsn: String!
   email: String
   dob: String
   username: String
@@ -42,7 +42,7 @@ input PatientInput {
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!, patientName: String, patientSsn: String, dob: String, Role_type: String): Auth
-    addProvider(providerName: String!,providerSpecialty: String!): Provider
+    addProvider(providerName: String!, providerSpecialty: String!): Provider
     removeProvider(providerId: ID!): Provider
     removePatient(providerId: ID!, patientId: ID!): Provider
   }
