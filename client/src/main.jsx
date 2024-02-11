@@ -6,18 +6,17 @@ import App from './App.jsx'
 // import Login from './components/LoginForm';
 import SearchProviders from './pages/SearchProviders.jsx'
 import BillingPage from './components/BillingPage'
-import CreatePatient from './pages/CreatePatient'
-import SignUpForm from './components/SignUp.jsx'
+// import CreatePatient from './pages/CreatePatient'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      {
-        Index: true,
-        element: <CreatePatient />
-      },
+      // {
+      //   Index: true,
+      //   element: <CreatePatient />
+      // },
       {
         Path: "/billing",
         element: <BillingPage />
@@ -27,10 +26,10 @@ const router = createBrowserRouter([
         path: '/provider',
          element: <SearchProviders />
        },
-       {
-        path: '/signup',
-         element: <SignUpForm />
-       },
+      //  {
+      //   path: '/signup',
+      //    element: <SignUpForm />
+      //  },
     ]
   },
 ]);

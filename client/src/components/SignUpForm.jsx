@@ -1,17 +1,15 @@
-// see SignupForm.js for comments
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-// import { SignUpUser } from '../utils/API';
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
 import {ADD_USER} from '../utils/mutations'
 
 const SignUpForm = () => {
-  const [userFormData, setUserFormData] = useState({ username: "", patientName: "", patientSsn: "", dob: "", email: '', password: '', Role_type: "" });
+  const [userFormData, setUserFormData] = useState({ username: '', patientName: '', patientSsn: '', dob: '', email: '', password: '', Role_type: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [AddUser, {error} ] = useMutation(ADD_USER)
+  const [addUser, {error} ] = useMutation(ADD_USER)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -29,7 +27,7 @@ const SignUpForm = () => {
     }
 
     try {
-     const {data} = await SignUp ({
+     const {data} = await addUser ({
       variables: {...userFormData}
      }) 
       console.log(data);
@@ -42,11 +40,11 @@ const SignUpForm = () => {
     setUserFormData({
       email: '',
       password: '',
-      username: "", 
-      patientName: "", 
-      patientSsn: "", 
-      dob: "", 
-      Role_type
+      username: '', 
+      patientName: '', 
+      patientSsn: '', 
+      dob: '', 
+      Role_type,
     });
   };
 

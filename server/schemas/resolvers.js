@@ -65,39 +65,22 @@ const resolvers = {
       ('You need to be logged in!');
     },
     
-    removeProvider: async (parent, { providerId }, context) => {
-      if (context.user) {
-        const provider = await Provider.findOneAndDelete({
-          _id: providerId,
-          providerSpecialty: context.user.username,
-        });
+    // removeProvider: async (parent, { providerId }, context) => {
+    //   if (context.user) {
+    //     const provider = await Provider.findOneAndDelete({
+    //       _id: providerId,
+    //       providerSpecialty: context.user.username,
+    //     });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { providers: provider._id } }
-        );
+    //     await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { providers: provider._id } }
+    //     );
 
-        return provider;
-      }
-      throw AuthenticationError;
-    },
-    removePatient: async (parent, { providerId, patientId }, context) => {
-      if (context.user) {
-        return Provider.findOneAndUpdate(
-          { _id: providerId },
-          {
-            $pull: {
-              patients: {
-                _id: patientId,
-                patientAuthor: context.user.username,
-              },
-            },
-          },
-          { new: true }
-        );
-      }
-      throw AuthenticationError;
-    },
+    //     return provider;
+    //   }
+    //   throw AuthenticationError;
+    // },
 
   },
 };

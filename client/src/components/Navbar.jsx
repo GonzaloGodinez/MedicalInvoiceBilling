@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import LoginForm from './LoginForm';
+import SignUpForm from './SignUpForm';
 
 import Auth from '../utils/auth';
 
@@ -29,13 +30,13 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/provider'>
                     Billing
                   </Nav.Link>
-                  {/* <Nav.Link as={Link} to='/billing'>
+              <Nav.Link as={Link} to='/billing'>
                 Search For Patients
-              </Nav.Link> */}
+              </Nav.Link> 
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
@@ -55,6 +56,9 @@ const AppNavbar = () => {
                 <Nav.Item>
                   <Nav.Link eventKey='login'>Login</Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
+                </Nav.Item>
               </Nav>
             </Modal.Title>
           </Modal.Header>
@@ -62,6 +66,9 @@ const AppNavbar = () => {
             <Tab.Content>
               <Tab.Pane eventKey='login'>
                 <LoginForm handleModalClose={() => setShowModal(false)} />
+              </Tab.Pane>
+              <Tab.Pane eventKey='signup'>
+                <SignUpForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>

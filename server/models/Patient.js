@@ -10,7 +10,7 @@ const patientSchema = new Schema({
     trim: true,
   },
   patientSsn: {
-    type: Number,
+    type: String,
     required: true,
     trim: false,
   },
@@ -34,7 +34,7 @@ const patientSchema = new Schema({
 //     required: true,
 //     trim: false,
 //   },
-// patientDob: {
+// dob: {
 //   type: String,
 //   required: true,
 //   trim: false,
