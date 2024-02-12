@@ -43,10 +43,10 @@ const userSchema = new Schema({
       ref: 'Provider',
     },
   ],
-  Patients: [
+  Diagnostic: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Patient',
+      ref: 'Diagnostic',
     },
   ],
 });

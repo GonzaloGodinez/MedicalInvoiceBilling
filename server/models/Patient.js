@@ -39,7 +39,11 @@ const patientSchema = new Schema({
 //   required: true,
 //   trim: false,
 // },
-
+// diagnosticCode: {
+//   type: String,
+//   required: true,
+//   trim: false,
+// },
   createdAt: {
     type: Date,
     default: Date.now,
