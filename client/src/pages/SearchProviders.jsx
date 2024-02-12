@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 //import { SAVE_PATIENT } from '../utils/mutations';
-import { QUERY_USERS } from '../utils/queries';
+import { QUERY_USERS, QUERY_PROVIDER } from '../utils/queries';
 // import { QUERY_ME } from '../utils/queries';
 
 import {
@@ -25,15 +25,20 @@ const SearchProviders = () => {
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
   const [savedPatientIds, setPatientIds] = useState([]);
-  const [loading, data] = useQuery(QUERY_USERS);
+  // const {loading, data} = useQuery(QUERY_PROVIDER);
+  // const providers = data?.providers || []
+  // console.log (providers)
+  const {loading, data} = useQuery(QUERY_USERS);
+  const users = data?.users || []
+  console.log (users)
   // set up useEffect hook to save `savedPatientIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-  useEffect(() => {
+  // useEffect(() => {
   //  const userData = data?.users || {};
     console.log("userData")
-    console.log(data)
+    // console.log(data)
     // return () => savePatients(savedPatientIds);
-   },[data]);  
+  //  },[data]);  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     // {data, loading, error}
@@ -50,12 +55,12 @@ const SearchProviders = () => {
       // }));
 // make the query d o n e
 // loop thru them d o n e
-// console.log them
-// perform the drop down menu
+// console.log them done
+// perform the drop down menu displaying all patients
 // on select call the searchProviders
 // when  the provider is selected then we map the patients in html
       // setProvider(providerData);
-      // setSearchInput('');
+      // setSearchInput(''); 95% done
     } catch (err) {
       console.error(err);
     }
@@ -75,6 +80,7 @@ const SearchProviders = () => {
 
     try {
      // const response = await savePatient(patientToSave, token);
+     // need to update this funtionality to save the patient info including the diagnostic
           const response = await useMutation(SAVE_PATIENT)(patientToSave, token);
 
       if (!response.ok) {
@@ -122,23 +128,23 @@ const SearchProviders = () => {
             : 'Search for a patient to begin'}
         </h2>
         <Row>
-          {searchedProviders.map((patient) => {
+          {users.map((patient) => {
             return (
-              <Col md="4" key={patient.patientId}>
+              <Col md="4" key={patient._id}>
                 <Card border='dark'>
                   {patient.image ? (
                     <Card.Img src={patient.image} alt={`The cover for ${patient.title}`} variant='top' />
                   ) : null}
                   <Card.Body>
-                    <Card.Title>{patient.title}</Card.Title>
-                    <p className='small'>Authors: {patient.authors}</p>
-                    <Card.Text>{patient.description}</Card.Text>
+                    <Card.Title>{patient.patientName}</Card.Title>
+                    <p className='small'>Patient Name: {patient.username}</p>
+                    <Card.Text>{patient.patientSsn}</Card.Text>
                     {Auth.loggedIn() && (
                       <Button
                         disabled={savedPatientIds?.some((savedPatientId) => savedPatientId === patient.patientId)}
                         className='btn-block btn-info'
-                        onClick={() => handlesaveProvider(patient.patientId)}>
-                        {savedPatientIds?.some((savedPatientId) => savedPatientId === patient.patientId)
+                        onClick={() => handlesaveProvider(patient._id)}>
+                        {savedPatientIds?.some((savedPatientId) => savedPatientId === patient._id)
                           ? 'This patient has already been saved!'
                           : 'Save this Patient!'}
                       </Button>

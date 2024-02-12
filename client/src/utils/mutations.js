@@ -9,8 +9,8 @@ mutation Login($email: String!, $password: String!) {
 `;
 
 export const ADD_USER = gql`
-  mutation AddUser($username: String!, $email: String!, $password: String!, $patientName: String, $patientSsn: String, $dob: String) {
-  addUser(username: $username, email: $email, password: $password, patientName: $patientName, patientSsn: $patientSsn, dob: $dob) {
+  mutation AddUser($username: String!, $email: String!, $password: String!, $patientName: String, $patientSsn: String, $dob: String, $Role_type: String) {
+  addUser(username: $username, email: $email, password: $password, patientName: $patientName, patientSsn: $patientSsn, dob: $dob, Role_type: $Role_type) {
     token
   }
 }

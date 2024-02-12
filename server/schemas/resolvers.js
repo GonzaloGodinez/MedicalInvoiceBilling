@@ -9,9 +9,8 @@ const resolvers = {
     user: async (parent, { patientName, patientSsn, dob }) => {
       return User.findOne({ patientName, patientSsn, dob  }).populate('Providers').populate('Diagnostic');
     },
-    providers: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Provider.find(params).sort({ createdAt: -1 });
+    providers: async (parent) => {
+      return Provider.find().sort({ createdAt: -1 });
     },
     provider: async (parent, { providerId }) => {
       return Provider.findOne({ _id: providerId });
@@ -25,8 +24,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password, patientName, patientSsn, dob}) => {
-      const user = await User.create({ username, email, password, patientName, patientSsn, dob });
+    addUser: async (parent, { username, email, password, patientName, patientSsn, dob, Role_type}) => {
+      const user = await User.create({ username, email, password, patientName, patientSsn, dob, Role_type });
       const token = signToken(user);
       return { token, user };
     },

@@ -44,7 +44,7 @@ const SignUpForm = () => {
       patientName: '', 
       patientSsn: '', 
       dob: '', 
-      Role_type,
+      Role_type: '',
     });
   };
 

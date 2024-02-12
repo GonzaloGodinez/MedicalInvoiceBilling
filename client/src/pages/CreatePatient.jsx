@@ -48,24 +48,24 @@ const CreatePatient = () => {
   return (
     <>
       <div>Create Patient</div>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate   onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your SignUp credentials!
         </Alert>
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='diagnosticName'>diagnostic Name</Form.Label>
+          <Form.Label htmlFor='diagnosticName'>patient visit concern</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your diagnostic name'
+            placeholder='Your patient visit concern'
             name='diagnosticName'
             onChange={handleInputChange}
             value={userFormData.diagnosticName}
             required
           />
-          <Form.Control.Feedback type='invalid'>Diagnostic Name is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>Patient visit concern is required!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='diagnosticCode'>diagnosticCode</Form.Label>
+          <Form.Label htmlFor='diagnosticCode'>diagnostic code</Form.Label>
           <Form.Control
             type='text'
             placeholder='diagnosticCode'
@@ -74,7 +74,7 @@ const CreatePatient = () => {
             value={userFormData.diagnosticCode}
             required
           />
-          <Form.Control.Feedback type='invalid'>diagnosticCodeis required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>diagnostic code is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
@@ -87,11 +87,11 @@ const CreatePatient = () => {
             value={userFormData.diagnosticDescription}
             required
           />
-          <Form.Control.Feedback type='invalid'>diagnosticDescriptionis required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>diagnostic description is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='diagnosticPrice'>Patients Social</Form.Label>
+          <Form.Label htmlFor='diagnosticPrice'>diagnostic price</Form.Label>
           <Form.Control
             type='text'
             placeholder='diagnosticPrice'
@@ -100,7 +100,7 @@ const CreatePatient = () => {
             value={userFormData.patientSsn}
             required
           />
-          <Form.Control.Feedback type='invalid'>diagnosticPrice is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>diagnostic price is required!</Form.Control.Feedback>
         </Form.Group>
         
         <Button
