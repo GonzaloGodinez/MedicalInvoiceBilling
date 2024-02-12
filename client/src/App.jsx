@@ -8,6 +8,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import CreatePatient from './pages/CreatePatient';
 
 // Construct our main GraphQL Sandbox API endpoint
 const httpLink = createHttpLink({
@@ -40,6 +41,7 @@ function App() {
         
         {/* <div className="container"> */}
         <Navbar />
+        {/* <CreatePatient/> */}
         <Outlet />
         {/* </div> */}
 

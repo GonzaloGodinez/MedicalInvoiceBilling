@@ -79,3 +79,14 @@ query Me {
   }
 }
 `;
+
+export const QUERY_PROVIDER = gql`
+query Providers {
+  providers {
+    _id
+    createdAt
+    providerName
+    providerSpecialty
+  }
+}
+`

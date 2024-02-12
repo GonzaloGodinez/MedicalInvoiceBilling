@@ -42,7 +42,7 @@ input PatientInput {
   type Query {
     users: [User]
     user(patientName: String!, patientSsn: String!, dob: String): User
-    providers(username: String): [Provider]
+    providers: [Provider]
     provider(providerId: ID!): Provider
     me: User
   }
