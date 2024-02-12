@@ -1,13 +1,13 @@
-const { User, Provider } = require('../models');
+const { User, Provider, Diagnostic } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('Providers');
+      return User.find().populate('Providers').populate('Diagnostic');
     },
     user: async (parent, { patientName, patientSsn, dob }) => {
-      return User.findOne({ patientName, patientSsn, dob  }).populate('Providers');
+      return User.findOne({ patientName, patientSsn, dob  }).populate('Providers').populate('Diagnostic');
     },
     providers: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -18,7 +18,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('Providers');
+        return User.findOne({ _id: context.user._id }).populate('Providers').populate('Diagnostic');
       }
       throw AuthenticationError;
     },
@@ -64,7 +64,25 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-    
+    addDiagnostic: async (parent, { diagnosticName, diagnosticCode, diagnosticDescription, diagnosticPrice}, context) => {
+      if (context.user) {
+        const diagnostic = await Diagnostic.create({
+          diagnosticName,
+          diagnosticCode,
+          diagnosticDescription,
+          diagnosticPrice,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { Diagnostic: diagnostic._id } }
+        );
+
+        return diagnostic;
+      }
+      throw AuthenticationError;
+      ('You need to be logged in!');
+    },
     // removeProvider: async (parent, { providerId }, context) => {
     //   if (context.user) {
     //     const provider = await Provider.findOneAndDelete({

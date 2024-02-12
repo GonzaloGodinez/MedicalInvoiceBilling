@@ -27,3 +27,14 @@ mutation AddProvider($providerName: String!, $providerSpecialty: String!) {
 }
 `;
 
+export const ADD_DIAGNOSTIC = gql`
+mutation AddDiagnostic($diagnosticName: String!, $diagnosticCode: String!, $diagnosticDescription: String!, $diagnosticPrice: String!) {
+  addDiagnostic(diagnosticName: $diagnosticName, diagnosticCode: $diagnosticCode, diagnosticDescription: $diagnosticDescription, diagnosticPrice: $diagnosticPrice) {
+    _id
+    createdAt
+    diagnosticDescription
+    diagnosticName
+    diagnosticPrice
+  }
+}
+`

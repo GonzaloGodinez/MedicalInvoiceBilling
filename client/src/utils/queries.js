@@ -25,6 +25,19 @@ query Users {
     Role_type
     patientName
     patientSsn
+    Diagnostic {
+      _id
+      createdAt
+      diagnosticDescription
+      diagnosticName
+      diagnosticPrice
+    }
+    Providers {
+      _id
+      createdAt
+      providerName
+      providerSpecialty
+    }
   }
 }
 `;

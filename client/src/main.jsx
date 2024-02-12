@@ -6,17 +6,19 @@ import App from './App.jsx'
 // import Login from './components/LoginForm';
 import SearchProviders from './pages/SearchProviders.jsx'
 import BillingPage from './components/BillingPage'
-// import CreatePatient from './pages/CreatePatient'
+import CreatePatient from './pages/CreatePatient'
+import ErrorPage from './pages/ErrorPage'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
-      // {
-      //   Index: true,
-      //   element: <CreatePatient />
-      // },
+      {
+        Index: true,
+        element: <CreatePatient />
+      },
       {
         Path: "/billing",
         element: <BillingPage />

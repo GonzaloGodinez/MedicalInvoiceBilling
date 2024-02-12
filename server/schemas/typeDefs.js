@@ -9,6 +9,7 @@ const typeDefs = `
     password: String
     Role_type: String
     Providers: [Provider]
+    Diagnostic: [Diagnostic]
   }
 
   type Provider {
@@ -18,6 +19,13 @@ const typeDefs = `
     createdAt: String
   }
 
+  type Diagnostic {
+    _id: ID
+    diagnosticName: String
+    diagnosticDescription: String
+    diagnosticPrice: String
+    createdAt: String
+  }
 input PatientInput {
   patientName: String!
   patientSsn: String!
@@ -43,6 +51,7 @@ input PatientInput {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!, patientName: String, patientSsn: String, dob: String, Role_type: String): Auth
     addProvider(providerName: String!, providerSpecialty: String!): Provider
+    addDiagnostic(diagnosticName: String!, diagnosticCode: String!, diagnosticDescription: String!, diagnosticPrice: String!): Diagnostic
     removeProvider(providerId: ID!): Provider
     removePatient(providerId: ID!, patientId: ID!): Provider
   }
