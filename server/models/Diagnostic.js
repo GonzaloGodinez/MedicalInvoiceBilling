@@ -24,6 +24,10 @@ const diagnosticSchema = new Schema({
     required: true,
     trim: true,
   },
+  Provider: {
+      type: Schema.Types.ObjectId,
+      ref: 'Provider',
+    },
   createdAt: {
     type: Date,
     default: Date.now,

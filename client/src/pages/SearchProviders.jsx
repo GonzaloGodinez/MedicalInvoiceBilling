@@ -14,12 +14,13 @@ import {
 } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
+// import { savePatient } from '../../../server/controllers/user-controller';
 
 // import { savePatientIds, getSavedPatientIds } from '../utils/localStorage'; 
 
 
 const SearchProviders = () => {
-  // create state for holding returned google api data
+  // create state for holding returned Patient data
   const [searchedProviders, setsearchedProviders] = useState([]);
   // const [searchedPatients, setSearchedPatients] = useState([]);
   // create state for holding our search field data
@@ -79,13 +80,15 @@ const SearchProviders = () => {
     }
 
     try {
-     // const response = await savePatient(patientToSave, token);
      // need to update this funtionality to save the patient info including the diagnostic
-          const response = await useMutation(SAVE_PATIENT)(patientToSave, token);
-
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+        // console.log({...patientToSave})
+        // const { data } = await savePatient({
+        //   variables: {userData: {...patientToSave}}
+        // }) 
+        // console.log ({...patientToSave})
+      // if (!response.ok) {
+      //   throw new Error('something went wrong!');
+      // }
 
       // if patient successfully saves to user's account, save patient id to state
       setSavedPatientIds([...savedPatientIds, patientToSave.patientId]);

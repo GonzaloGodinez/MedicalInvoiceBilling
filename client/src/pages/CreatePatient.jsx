@@ -5,17 +5,25 @@ import { Form, Button, Alert } from 'react-bootstrap';
 // import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
+import { QUERY_PROVIDER } from '../utils/queries'
+import { ADD_DIAGNOSTIC } from '../utils/mutations'
 
 const CreatePatient = () => {
-  const [userFormData, setUserFormData] = useState({  diagnosticName:'', diagnosticCode: '', diagnosticDescription: '', diagnosticPrice: '' });
+  const { loading, data } = useQuery(QUERY_PROVIDER)
+  const providers = data?.providers || []
+  console.log(providers)
+  const [addDiagnostic, { error }] = useMutation(ADD_DIAGNOSTIC)
+  const [userFormData, setUserFormData] = useState({ diagnosticName: '', diagnosticCode: '', diagnosticDescription: '', diagnosticPrice: '', Provider: '' });
   // const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
+    console.log (userFormData)
   };
 
   const handleFormSubmit = async (event) => {
+    setShowAlert(false);
     event.preventDefault();
 
     // check if form has everything (as per react-bootstrap docs)
@@ -26,11 +34,11 @@ const CreatePatient = () => {
     }
 
     try {
-     const {data} = await addUser ({
-      variables: {...userFormData}
-     }) 
+      const { data } = await addDiagnostic({
+        variables: { ...userFormData }
+      })
       console.log(data);
-      Auth.login(data.addUser.token);
+
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -39,16 +47,15 @@ const CreatePatient = () => {
     setUserFormData({
       diagnosticName: '',
       diagnosticCode: '',
-      diagnosticDescription: '', 
-      diagnosticPrice: '', 
-      
+      diagnosticDescription: '',
+      diagnosticPrice: '',
     });
   };
 
   return (
     <>
-      <div>Create Patient</div>
-      <Form noValidate   onSubmit={handleFormSubmit}>
+      <div>Patient Visit</div>
+      <Form noValidate onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your SignUp credentials!
         </Alert>
@@ -97,12 +104,23 @@ const CreatePatient = () => {
             placeholder='diagnosticPrice'
             name='diagnosticPrice'
             onChange={handleInputChange}
-            value={userFormData.patientSsn}
+            value={userFormData.diagnosticPrice}
             required
           />
           <Form.Control.Feedback type='invalid'>diagnostic price is required!</Form.Control.Feedback>
         </Form.Group>
-        
+
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='provider'>provider</Form.Label>
+          <Form.Select aria-label="Providers " name= "Provider" onChange= {handleInputChange} value={userFormData.Provider}>
+            <option value=''>Open this select a Provider</option>
+            {providers.map(provider=>(
+              <option value={provider._id}>{provider.providerName}</option>
+            ))}
+          </Form.Select>
+          <Form.Control.Feedback type='invalid'>diagnostic price is required!</Form.Control.Feedback>
+        </Form.Group>
+
         <Button
           // disabled={!(userFormData.email && userFormData.password)}
           type='submit'
