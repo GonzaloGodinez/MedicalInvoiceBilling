@@ -6,7 +6,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import {ADD_USER} from '../utils/mutations'
 
 const SignUpForm = () => {
-  const [userFormData, setUserFormData] = useState({ username: '', patientName: '', patientSsn: '', dob: '', email: '', password: '', Role_type: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', patientName: '', patientSsn: '', dob: '', email: '', password: '', roleType: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addUser, {error} ] = useMutation(ADD_USER)
@@ -25,9 +25,10 @@ const SignUpForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    console.log(userFormData);
     try {
      const {data} = await addUser ({
+      //variables: {patientInput: userFormData}
       variables: {...userFormData}
      }) 
       console.log(data);
@@ -44,7 +45,7 @@ const SignUpForm = () => {
       patientName: '', 
       patientSsn: '', 
       dob: '', 
-      Role_type: '',
+      roleType: '',
     });
   };
 
@@ -119,13 +120,13 @@ const SignUpForm = () => {
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='Role_type'>Role Type </Form.Label>
+          <Form.Label htmlFor='roleType'>Role Type </Form.Label>
           <Form.Control
             type='text'
             placeholder='Your Role Type'
-            name='Role_type'
+            name='roleType'
             onChange={handleInputChange}
-            value={userFormData.Role_type}
+            value={userFormData.roleType}
             required
           />
           <Form.Control.Feedback type='invalid'>Patiens Role Type is required!</Form.Control.Feedback>

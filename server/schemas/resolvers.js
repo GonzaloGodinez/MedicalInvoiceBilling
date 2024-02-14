@@ -24,20 +24,26 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password, patientName, patientSsn, dob, Role_type}) => {
-      const user = await User.create({ username, email, password, patientName, patientSsn, dob, Role_type });
+    addUser: async (parent, args ) => {
+    //  addUser: async (parent, { username, email, password, patientName, patientSsn, dob, Role_type}) => {
+    // console.log (patientInput)  
+    console.log("patient info p2")
+      console.log(args);
+      // console.log (patientInput.username, patientInput.email, patientInput.password, patientInput.patientName, patientInput.patientSsn, patientInput.dob, patientInput.Role_type)
+      // const user = await User.create({ username, email, password, patientName, patientSsn, dob, Role_type });
+      const user = await User.create(args);
       const token = signToken(user);
       return { token, user };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
+      console.log (user)
       if (!user) {
         throw AuthenticationError;
       }
 
       const correctPw = await user.isCorrectPassword(password);
-
+console.log (correctPw)
       if (!correctPw) {
         throw AuthenticationError;
       }
@@ -63,13 +69,14 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-    addDiagnostic: async (parent, { diagnosticName, diagnosticCode, diagnosticDescription, diagnosticPrice}, context) => {
+    addDiagnostic: async (parent, { diagnosticName, diagnosticCode, diagnosticDescription, diagnosticPrice, Provider}, context) => {
       if (context.user) {
         const diagnostic = await Diagnostic.create({
           diagnosticName,
           diagnosticCode,
           diagnosticDescription,
           diagnosticPrice,
+          Provider,
         });
 
         await User.findOneAndUpdate(
@@ -77,7 +84,7 @@ const resolvers = {
           { $addToSet: { Diagnostic: diagnostic._id } }
         );
 
-        return diagnostic;
+        return diagnostic.populate('Provider');
       }
       throw AuthenticationError;
       ('You need to be logged in!');
@@ -98,7 +105,30 @@ const resolvers = {
     //   }
     //   throw AuthenticationError;
     // },
+addProvidertoPatient: async (parent, { Provider }, context) => {
+  if (context.user) {
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { Provider: Provider } }, 
+          {new: true}
+        );
 
+        return user;
+      }
+      throw AuthenticationError;
+},
+addDiagnostictoPatient: async (parent, { Diagnostic }, context) => {
+  if (context.user) {
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { Diagnostic: Diagnostic } }, 
+          {new: true}
+        );
+
+        return user;
+      }
+      throw AuthenticationError;
+}
   },
 };
 

@@ -7,12 +7,12 @@ mutation Login($email: String!, $password: String!) {
   }
 }
 `;
-
+//  username, email, password, patientName, patientSsn, dob, roleType
 export const ADD_USER = gql`
-  mutation AddUser($username: String!, $email: String!, $password: String!, $patientName: String, $patientSsn: String, $dob: String, $Role_type: String) {
-  addUser(username: $username, email: $email, password: $password, patientName: $patientName, patientSsn: $patientSsn, dob: $dob, Role_type: $Role_type) {
-    token
-  }
+  mutation addUser($username: String!, $email: String!, $password: String!, $patientName: String, $patientSsn: String, $dob: String, $roleType: String) {
+    addUser(username: $username, email: $email, password: $password, patientName: $patientName, patientSsn: $patientSsn, dob: $dob, roleType: $roleType) {
+      token
+    }
 }
 `;
 
@@ -28,8 +28,8 @@ mutation AddProvider($providerName: String!, $providerSpecialty: String!) {
 `;
 
 export const ADD_DIAGNOSTIC = gql`
-mutation AddDiagnostic($diagnosticName: String!, $diagnosticCode: String!, $diagnosticDescription: String!, $diagnosticPrice: String!) {
-  addDiagnostic(diagnosticName: $diagnosticName, diagnosticCode: $diagnosticCode, diagnosticDescription: $diagnosticDescription, diagnosticPrice: $diagnosticPrice) {
+mutation addDiagnostic($diagnosticName: String!, $diagnosticCode: String!, $diagnosticDescription: String!, $diagnosticPrice: String!, $Provider: String!) {
+  addDiagnostic(diagnosticName: $diagnosticName, diagnosticCode: $diagnosticCode, diagnosticDescription: $diagnosticDescription, diagnosticPrice: $diagnosticPrice, Provider: $Provider) {
     _id
     createdAt
     diagnosticDescription
@@ -37,4 +37,4 @@ mutation AddDiagnostic($diagnosticName: String!, $diagnosticCode: String!, $diag
     diagnosticPrice
   }
 }
-`
+`;

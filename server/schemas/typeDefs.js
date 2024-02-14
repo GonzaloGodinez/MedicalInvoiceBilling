@@ -24,6 +24,7 @@ const typeDefs = `
     diagnosticName: String
     diagnosticDescription: String
     diagnosticPrice: String
+    Provider: Provider
     createdAt: String
   }
 input PatientInput {
@@ -31,6 +32,7 @@ input PatientInput {
   patientSsn: String!
   email: String
   dob: String
+  roleType: String
   username: String
   password: String
 }
@@ -49,11 +51,13 @@ input PatientInput {
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!, patientName: String, patientSsn: String, dob: String, Role_type: String): Auth
+    addUser(username: String!, email: String!,password: String!, patientName: String, patientSsn: String, dob: String, roleType: String): Auth
     addProvider(providerName: String!, providerSpecialty: String!): Provider
-    addDiagnostic(diagnosticName: String!, diagnosticCode: String!, diagnosticDescription: String!, diagnosticPrice: String!): Diagnostic
+    addDiagnostic(diagnosticName: String!, diagnosticCode: String!, diagnosticDescription: String!, diagnosticPrice: String!, Provider: String!): Diagnostic
     removeProvider(providerId: ID!): Provider
     removePatient(providerId: ID!, patientId: ID!): Provider
+    addProvidertoPatient(Provider: ID!): User
+    addDiagnostictoPatient(Diagnostic: ID!): User
   }
 `;
 
