@@ -11,10 +11,9 @@ const BillingPage = () => {
   // const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-
   return (
     <>
-      <div>Billing Page</div>
+      <div>Billing Page "Future Development"</div>
     </>
   );
 };

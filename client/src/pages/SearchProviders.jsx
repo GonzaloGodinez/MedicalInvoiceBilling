@@ -57,7 +57,7 @@ const SearchProviders = () => {
 // make the query d o n e
 // loop thru them d o n e
 // console.log them done
-// perform the drop down menu displaying all patients
+// perform the drop down menu displaying all patients - done
 // on select call the searchProviders
 // when  the provider is selected then we map the patients in html
       // setProvider(providerData);
@@ -128,7 +128,7 @@ const SearchProviders = () => {
         <h2 className='pt-5'>
           {searchedProviders.length
             ? `Viewing ${searchedProviders.length} results:`
-            : 'Search for a patient to begin'}
+            : 'Pls Search above for a patient to begin'}
         </h2>
         <Row>
           {users.map((patient) => {
@@ -149,7 +149,7 @@ const SearchProviders = () => {
                         onClick={() => handlesaveProvider(patient._id)}>
                         {savedPatientIds?.some((savedPatientId) => savedPatientId === patient._id)
                           ? 'This patient has already been saved!'
-                          : 'Save this Patient!'}
+                          : 'Save this Patient! - Future development'}
                       </Button>
                     )}
                   </Card.Body>
