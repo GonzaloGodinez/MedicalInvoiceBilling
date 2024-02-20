@@ -2,8 +2,8 @@
   {
     "username": "Gonzalo Godinez submitter",
     "email": "Ggodinez@gmail.com",
-    "patientName": "",
-    "patientSsn": "",
+    "patientName": "Gonzalo Godinez",
+    "patientSsn": "650123485",
     "dob": "",
     "password": "soccer1",
     "Role_type": "administration"
@@ -12,8 +12,8 @@
     "username": "Max patient1",
     "email": "mkanatalexander@techfriends.dev",
     "patientName": "Gerard",
-    "patientSsn": "123456780",
-    "dob": "",
+    "patientSsn": "654123486",
+    "dob": "06251987",
     "password": "password02",
     "Role_type": "patient"
   },
@@ -21,7 +21,7 @@
     "username": "Peter patient2",
     "email": "wtls@techfriends.dev",
     "patientName": "Peter Gonzalez",
-    "patientSsn": "123456789",
+    "patientSsn": "651123496",
     "dob": "01101985",
     "password": "password03",
     "Role_type": "patient"
@@ -30,7 +30,7 @@
     "username": "Kent patient3",
     "email": "ksubmitter3@techfriends.dev",
     "patientName": "Kevin sick",
-    "patientSsn": "123456987",
+    "patientSsn": "656123436",
     "dob": "01101967",
     "password": "password04",
     "Role_type": "patient"
@@ -38,34 +38,34 @@
   {
     "username": "Janet L Miller",
     "patientName": "Janet Miller",
-    "patientSsn": "123456432",
-    "dob": "01101977",
+    "patientSsn": "651123401",
+    "dob": "08101960",
     "email": "evsubmitter4@techfriends.dev",
     "password": "password05",
     "Role_type": "patient"
   },
   {
     "username": "Conny Arq",
-    "patientName": "Arquitect",
-    "patientSsn": "",
-    "dob": "",
+    "patientName": "Constanza Bella",
+    "patientSsn": "651123423",
+    "dob": "10101961",
     "email": "ConnyArq@gmail.com",
     "password": "password2",
-    "Role_type": "administration"
+    "Role_type": "patient"
   },
   {
-    "username": "Susan Morris Sub",
-    "patientName": "Susan Morris",
-    "patientSsn": "",
-    "dob": "",
+    "username": "Susan More Sub",
+    "patientName": "Susan More",
+    "patientSsn": "655123496",
+    "dob": "07091970",
     "email": "SMorris@gmail.com",
     "password": "password3",
     "Role_type": "administration"
   },
   {
-    "username": "David submitter7",
+    "username": "David PAtient8",
     "patientName": "David Pat",
-    "patientSsn": "123446432",
+    "patientSsn": "657123496",
     "dob": "03051989",
     "email": "dsubmitter7@techfriends.dev",
     "password": "password08",
@@ -74,7 +74,7 @@
   {
     "username": "Kevin pat3",
     "patientName": "Kevin Pat",
-    "patientSsn": "123446432",
+    "patientSsn": "658123496",
     "dob": "04051987",
     "email": "dsubmitter8@techfriends.dev",
     "password": "password09",
@@ -83,8 +83,8 @@
   {
     "username": "Lernantino",
     "patientName": "Lernantino",
-    "patientSsn": "",
-    "dob": "",
+    "patientSsn": "659123496",
+    "dob": "01121990",
     "email": "lernantino@techfriends.dev",
     "password": "password10",
     "Role_type": "administration"

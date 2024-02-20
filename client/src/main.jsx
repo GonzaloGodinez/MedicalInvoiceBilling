@@ -6,6 +6,7 @@ import CreatePatient from './pages/CreatePatient'
 import SearchProviders from './pages/SearchProviders.jsx'
 import BillingPage from './pages/BillingPage'
 import ErrorPage from './pages/ErrorPage';
+import PatientInfo from './pages/PatientInfo.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css'
 const router = createBrowserRouter([
   {
@@ -25,10 +26,10 @@ const router = createBrowserRouter([
         path: "/billing",
         element: <BillingPage />
       },
-      // {
-      //   path: "/patientInfo",
-      //   element: <PatientPage />
-      // },
+      {
+        path: "/patientInfo/:id",
+        element: <PatientInfo />
+      },
       
     ]
   },

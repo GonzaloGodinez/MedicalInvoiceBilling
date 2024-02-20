@@ -3,6 +3,7 @@ import { useMutation, useQuery } from '@apollo/client';
 //import { SAVE_PATIENT } from '../utils/mutations';
 import { QUERY_USERS, QUERY_PROVIDER } from '../utils/queries';
 // import { QUERY_ME } from '../utils/queries';
+import { Link } from 'react-router-dom';
 
 import {
   Container,
@@ -111,7 +112,7 @@ const SearchProviders = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search for a patient'
+                  placeholder='Search for a patient future development'
                 />
               </Col>
               <Col xs={12} md={4}>
@@ -131,26 +132,30 @@ const SearchProviders = () => {
             : 'Pls Search above for a patient to begin'}
         </h2>
         <Row>
-          {users.map((patient) => {
+        {console.log (users) }
+          {users.map((patient, index) => {
             return (
               <Col md="4" key={patient._id}>
                 <Card border='dark'>
                   {patient.image ? (
                     <Card.Img src={patient.image} alt={`The cover for ${patient.title}`} variant='top' />
                   ) : null}
-                  <Card.Body>
+                  <Card.Body key={patient._id}>
                     <Card.Title>{patient.patientName}</Card.Title>
                     <p className='small'>Patient Name: {patient.username}</p>
                     <Card.Text>{patient.patientSsn}</Card.Text>
+                    <p className='small'>Patient SSN</p>
+                    {console.log (patient.Providers)}
+                    {patient.Providers.map(provider => {
+                      return <Card.Text key={provider._id}>{provider.providerName}</Card.Text>
+                    })}
+                    
                     {Auth.loggedIn() && (
-                      <Button
-                        disabled={savedPatientIds?.some((savedPatientId) => savedPatientId === patient.patientId)}
+                      <Link
                         className='btn-block btn-info'
-                        onClick={() => handlesaveProvider(patient._id)}>
-                        {savedPatientIds?.some((savedPatientId) => savedPatientId === patient._id)
-                          ? 'This patient has already been saved!'
-                          : 'Save this Patient! - Future development'}
-                      </Button>
+                    to = {`/patientInfo/${patient._id}`}>
+                        Patient information! - Future development
+                      </Link>
                     )}
                   </Card.Body>
                 </Card>

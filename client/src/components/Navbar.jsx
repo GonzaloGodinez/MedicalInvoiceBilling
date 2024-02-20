@@ -24,7 +24,7 @@ const AppNavbar = () => {
               {/* if user is logged in show saved patients and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/provider'>
+                  <Nav.Link as={Link} to='/patientInfo/:id'>
                     Patient Information
                   </Nav.Link>
                   <Nav.Link as={Link} to='/provider'>

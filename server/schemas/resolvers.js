@@ -84,6 +84,11 @@ console.log (correctPw)
           { $addToSet: { Diagnostic: diagnostic._id } }
         );
 
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { Providers: Provider } }
+        );
+        
         return diagnostic.populate('Provider');
       }
       throw AuthenticationError;
@@ -109,7 +114,7 @@ addProvidertoPatient: async (parent, { Provider }, context) => {
   if (context.user) {
         const user = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { Provider: Provider } }, 
+          { $push: { Providers: Provider } }, 
           {new: true}
         );
 
