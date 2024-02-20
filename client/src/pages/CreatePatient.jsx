@@ -1,8 +1,6 @@
-// see SignupForm.js for comments
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-// import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_PROVIDER } from '../utils/queries'
@@ -19,7 +17,7 @@ const CreatePatient = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
-    console.log (userFormData)
+    console.log(userFormData)
   };
 
   const handleFormSubmit = async (event) => {
@@ -32,7 +30,7 @@ const CreatePatient = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    console.log(userFormData)
     try {
       const { data } = await addDiagnostic({
         variables: { ...userFormData }
@@ -112,13 +110,13 @@ const CreatePatient = () => {
 
         <Form.Group className='mb-3'>
           <Form.Label htmlFor='provider'>provider</Form.Label>
-          <Form.Select aria-label="Providers " name= "Provider" onChange= {handleInputChange} value={userFormData.Provider}>
-            <option value=''>Open this select a Provider</option>
-            {providers.map(provider=>(
-              <option value={provider._id}>{provider.providerName}</option>
+          <Form.Select aria-label="Providers " name="Provider" onChange={handleInputChange} value={userFormData.Provider}>
+            <option value=''>Open the drop down list to select a Provider</option>
+            {providers.map(provider => (
+              <option key={provider._id} value={provider._id}>{provider.providerName}</option>
             ))}
           </Form.Select>
-          <Form.Control.Feedback type='invalid'>diagnostic price is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>provider is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Button
